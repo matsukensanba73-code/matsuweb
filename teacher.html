@@ -12,8 +12,6 @@ body {
     color: #333;
     line-height: 1.9;
 }
-
-/* ヘッダー */
 header {
     padding: 20px;
     background: #f5f5f5;
@@ -29,8 +27,6 @@ header a {
     font-weight: bold;
     font-size: 1.1rem;
 }
-
-/* 全体幅 */
 .container {
     width: min(800px, 90%);
     margin: 60px auto;
@@ -39,22 +35,7 @@ h1 {
     font-size: 2.2rem;
     margin-bottom: 30px;
     text-align: center;
-    color: #333;
 }
-h2 {
-    font-size: 1.5rem;
-    color: #444;
-    margin-top: 40px;
-    border-left: 6px solid #8ac0ff;
-    padding-left: 10px;
-}
-p {
-    color: #444;
-    font-size: 1.05rem;
-    margin-bottom: 20px;
-}
-
-/* いいねボタン */
 .like-section {
     text-align: center;
     margin: 60px 0;
@@ -62,8 +43,7 @@ p {
 .like-btn {
     font-size: 2.2rem;
     cursor: pointer;
-    user-select: none;
-    transition: transform 0.2s ease, color 0.2s ease;
+    transition: 0.2s;
     color: #bbb;
 }
 .like-btn.liked {
@@ -73,7 +53,6 @@ p {
 .like-count {
     font-size: 1.2rem;
     margin-top: 8px;
-    color: #555;
 }
 </style>
 </head>
@@ -85,13 +64,8 @@ p {
 
 <div class="container">
     <h1>Teacher</h1>
-    <p>
-        本職は<strong>体育科教員</strong>。<br>
-        今は情報科の授業を担当している。忙しくも充実した毎日を過ごしている。<br>
-        難しいけど、頑張ろう！
-    </p>
+    <p>本職は<strong>体育科教員</strong>。情報科の授業も担当しています。</p>
 
-    <!-- いいね -->
     <div class="like-section">
         <div id="likeBtn" class="like-btn">❤️</div>
         <div id="likeCount" class="like-count">0 Likes</div>
@@ -104,15 +78,30 @@ const likeCount = document.getElementById("likeCount");
 
 const API_URL = "https://script.google.com/macros/s/AKfycbzw4ajdFF1oBbHOKqwXgLOWRyqWsvwWDie9b1MRSpQ-6-idnDydBDTr_xSRl2WFtbui/exec";
 
-// 初期値を取得
+// 初期値取得
 fetch(API_URL)
   .then(res => res.json())
   .then(data => {
     likeCount.textContent = `${data.count} Likes`;
   });
 
-// ❤️ クリック時：常に +1 する
+// 連打防止
+let isCooldown = false;
+
 likeBtn.addEventListener("click", () => {
+  if (isCooldown) return;
+
+  isCooldown = true;
+
+  likeBtn.style.pointerEvents = "none";
+  likeBtn.style.opacity = "0.4";
+
+  setTimeout(() => {
+    isCooldown = false;
+    likeBtn.style.pointerEvents = "auto";
+    likeBtn.style.opacity = "1";
+  }, 5000);
+
   fetch(API_URL, { method: "POST" })
     .then(res => res.json())
     .then(data => {
@@ -121,8 +110,6 @@ likeBtn.addEventListener("click", () => {
     });
 });
 </script>
-
-
 
 </body>
 </html>
