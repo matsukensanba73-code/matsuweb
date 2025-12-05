@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music - Matsuken Brain</title>
+
+    <style>
+        /* -------------------------
+            BASIC
+        ------------------------- */
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* -------------------------
+            HEADER
+        ------------------------- */
+        .sub-header {
+            background: #111;
+            padding: 16px;
+            text-align: center;
+            color: #fff;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 6px 14px;
+            font-size: 14px;
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 20px;
+            transition: 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #fff;
+            color: #111;
+        }
+
+        /* WRAPPER */
+        .wrapper {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            font-size: 26px;
+            margin-bottom: 18px;
+        }
+
+        /* -------------------------
+            RANKING CARD
+        ------------------------- */
+        .ranking-box {
+            background: #fff;
+            padding: 26px;
+            margin-bottom: 50px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: cardFadeUp 1.1s ease forwards;
+        }
+
+        @keyframes cardFadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 光の帯アニメ */
+        .ranking-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -80%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(120deg,
+                rgba(255,255,255,0) 0%,
+                rgba(255,255,255,0.45) 50%,
+                rgba(255,255,255,0) 100%
+            );
+            transform: skewX(-20deg);
+            animation: shine 6s infinite ease-in-out;
+        }
+
+        @keyframes shine {
+            0%   { left: -80%; }
+            60%  { left: 120%; }
+            100% { left: 120%; }
+        }
+
+        /* -------------------------
+            GALLERY
+        ------------------------- */
+        .gallery {
+            display: flex;
+            overflow-x: auto;
+            gap: 14px;
+            padding: 10px 0;
+            scroll-behavior: smooth;
+        }
+
+        .gallery::-webkit-scrollbar { height: 8px; }
+        .gallery::-webkit-scrollbar-thumb {
+            background: #bbb;
+            border-radius: 10px;
+        }
+
+        .gallery img {
+            height: 160px;
+            border-radius: 12px;
+            flex-shrink: 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeSoft 1.2s forwards ease;
+            transition: 0.4s ease;
+        }
+
+        @keyframes fadeSoft {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gallery img:hover {
+            transform: translateY(-6px) scale(1.06);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+            filter: brightness(1.1);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+            h2 { font-size: 22px; }
+            .gallery img { height: 130px; }
+            .back-btn { font-size: 13px; padding: 5px 12px; }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="sub-header">
+    <a href="index.html" class="back-btn">← BACK</a>
+    <h1>MUSIC</h1>
+</header>
+
+<div class="wrapper">
+
+    <h2>音楽</h2>
+    <p>
+        「目玉焼きには何をかける？」と聞かれた際に、「音楽をかける」と答えてしまう自分の好きなジャンルは 、<strong>邦ロック</strong> や、偶然見つかる <strong>マイナー系アーティスト</strong>。
+        メロディーやノリの良さに惹かれることが多く、特におしゃれな曲が大好き。もちろん有名なアーティストも聴くけど、
+        ここでは、松嶋が最もハマっている
+        <strong>3組のアーティスト</strong>をランキング形式で紹介します。
+    </p>
+
+    <!-- 1位：Chilli Beans. -->
+    <div class="ranking-box">
+        <h2>1位：Chilli Beans.</h2>
+        <p>
+            女性3人組で最も推しているバンド、チリビーンズ。世界観のおしゃれさ、抜け感、かわいさ、かっこよさ、
+            すべてが唯一無二。飾らない空気感やライブ途中のMCの適当さも魅力。上手く表現できないんだけど、めちゃくちゃ良い。
+            Vaundyとは音楽塾の同期で、最新曲の『that's all i can do』はドラマ「じゃあ、あんたが作ってみろよ」の挿入歌に起用されている。
+        </p>
+
+        <p><strong>おすすめ曲：</strong> シェキララ / lemonade / rose feat. Vaundy / Tremolo /
+            アンドロン / escape / See C Love / School / This way</p>
+
+        <p>
+            <a href="http://www.youtube.com/@ChilliBeans_music" target="_blank" style="color:#0066cc;">
+                ▶ YouTube（公式）
+            </a>
+        </p>
+
+        <div class="gallery">
+            <img src="img/chillibeans1.jpg" alt="">
+            <img src="img/chillibeans2.jpg" alt="">
+            <img src="img/chillibeans3.jpg" alt="">
+            <img src="img/chillibeans4.jpg" alt="">
+            <img src="img/chillibeans5.jpg" alt="">
+            <img src="img/chillibeans6.jpg" alt="">
+            <img src="img/chillibeans7.jpg" alt="">
+            <img src="img/chillibeans8.jpg" alt="">
+            <img src="img/chillibeans9.jpg" alt="">
+            <img src="img/chillibeans10.jpg" alt="">
+        </div>
+    </div>
+
+    <!-- 2位：Chevon -->
+    <div class="ranking-box">
+        <h2>2位：Chevon</h2>
+
+        <p>
+            シェボンは北海道札幌発のスリーピースバンド。ライブの爆発力と中毒性のある楽曲が魅力。
+            2025年11月にメジャーデビューを果たし、一気に勢いを増しているバンド。
+            曲のオシャレさも間違いなく、今年は色んなフェスでお世話になった。ライブ行きたい。
+        </p>
+
+        <p><strong>おすすめ曲：</strong> サクラループ / ダンス・デカダンス / セメテモノダンス /
+            薄明光線 / No.4 / 銃電中</p>
+
+        <p>
+            <a href="http://www.youtube.com/@chevon_official" target="_blank" style="color:#0066cc;">
+                ▶ YouTube（公式）
+            </a>
+        </p>
+
+        <div class="gallery">
+            <img src="img/chevon1.jpg" alt="">
+            <img src="img/chevon2.jpg" alt="">
+            <img src="img/chevon3.jpg" alt="">
+            <img src="img/chevon4.jpg" alt="">
+            <img src="img/chevon5.jpg" alt="">
+            <img src="img/chevon6.jpeg" alt="">
+            <img src="img/chevon7.jpg" alt="">
+        </div>
+    </div>
+
+    <!-- 3位：Tele -->
+    <div class="ranking-box">
+        <h2>3位：Tele</h2>
+
+        <p>
+            テレはとにかく歌詞とフレーズのセンスが抜群。  
+            何気ない言葉なのに心に刺さるラインが多く、松嶋の「めっちゃ良いじゃん」を連発してくるアーティスト。
+            高校生も絶対好きになると思う！「タコピーの原罪」のエンディングも担当した。
+        </p>
+
+        <p><strong>おすすめ曲：</strong> 誰も愛さない人 / 花瓶 / ロックスター / Veranda /
+            硝子の線 / 残像の愛し方 / バースデイ / 初恋 / カルト / 私小説</p>
+
+        <p>
+            <a href="http://www.youtube.com/@Telekitr" target="_blank" style="color:#0066cc;">
+                ▶ YouTube（公式）
+            </a>
+        </p>
+
+        <div class="gallery">
+            <img src="img/tele1.jpg" alt="">
+            <img src="img/tele2.jpg" alt="">
+            <img src="img/tele3.jpg" alt="">
+            <img src="img/tele4.jpg" alt="">
+            <img src="img/tele5.jpg" alt="">
+            <img src="img/tele6.jpg" alt="">
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    © 2025 まつけんの脳内
+</footer>
+
+</body>
+</html>

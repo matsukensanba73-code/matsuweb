@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hobby</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Helvetica Neue', sans-serif;
+        background: #ffffff;
+        color: #333;
+    }
+
+    /* --- HEADER --- */
+    header {
+        padding: 20px;
+        text-align: center;
+        background: #f5f5f5; /* ← 薄いグレーに変更 */
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    header a {
+        color: #333;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+
+    h1 {
+        margin-top: 10px;
+        font-size: 2rem;
+        color: #333;
+    }
+
+    /* --- GRID --- */
+    .grid {
+        width: min(850px, 90%);
+        margin: 50px auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+    }
+
+    @media (max-width: 768px) {
+        .grid {
+            grid-template-columns: 1fr;
+            width: 92%;
+        }
+    }
+
+    /* --- CARD --- */
+    .card {
+        background: #fff;
+        transition: 0.35s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-4px);
+        opacity: 0.95;
+    }
+
+    .card img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        display: block;
+    }
+
+    .card p {
+        padding: 14px 4px;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin: 0;
+        color: #555; /* ← テキストを上品なグレーへ変更 */
+    }
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html">← HOMEに戻る</a>
+    <h1>Hobby</h1>
+</header>
+
+<div class="grid">
+
+    <div class="card">
+        <img src="img/hobby1.jpg" alt="hobby image">
+        <p>バスケ：中学校から始めた。高校時代は全国で1勝を目標にひたすらバスケしてた。現在も続けてる。</p>
+    </div>
+
+    <div class="card">
+        <img src="img/hobby2.jpg" alt="hobby image">
+        <p>旅行1：今年に行ったタイでの思い出。なんかお気に入りの写真。</p>
+    </div>
+
+    <div class="card">
+        <img src="img/hobby3.jpg" alt="hobby image">
+        <p>旅行2：無人島で2泊3日サバイバルしてみた。魚釣れなくてお腹空いてる人たち。ウニはいっぱいいた。</p>
+    </div>
+
+    <div class="card">
+        <img src="img/hobby4.jpg" alt="hobby image">
+        <p>旅行3：沖縄。高校生ぶりに美ら海水族館へ。サメがかっこ良かった。</p>
+    </div>
+
+</div>
+
+<footer>
+    © 2025 まつけんの脳内
+</footer>
+
+</body>
+</html>

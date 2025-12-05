@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | まつけんの脳内</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    background: #f0ffff;
+    color: #333;
+}
+
+/* --- HEADER --- */
+header {
+    background: #ffffffcc;
+    backdrop-filter: blur(6px);
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+}
+header a {
+    text-decoration: none;
+    color: #007b7b;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* 波型ボーダー */
+.wave {
+    width: 100%;
+    height: 80px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.wave-top {
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg"><path fill="%23f0ffff" d="M0,0 C360,120 1080,0 1440,100 L1440,0 L0,0 Z"></path></svg>');
+}
+
+.wave-bottom {
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg"><path fill="%23f0ffff" d="M0,100 C360,0 1080,120 1440,20 L1440,120 L0,120 Z"></path></svg>');
+}
+
+/* セクション */
+section {
+    padding: 60px 10%;
+}
+h2 {
+    font-size: 2rem;
+    border-left: 6px solid #00a2a2;
+    padding-left: 12px;
+    margin-bottom: 20px;
+}
+
+/* --- IMAGE CARD --- */
+.img-card {
+    background: #fff;
+    padding: 15px;
+    width: 70%;
+    margin: auto;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+    animation: fadeUp 1s ease;
+}
+.img-card img {
+    width: 100%;
+    border-radius: 12px;
+    transition: transform 0.6s ease;
+}
+.img-card:hover img {
+    transform: scale(1.05);
+}
+
+/* --- TMS 特別セクション --- */
+.tms-section {
+    background: #f3f3f3;
+    padding: 60px 10%;
+    border-radius: 20px;
+    margin: 40px 5%;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+.tms-section .img-card {
+    width: 60%;
+}
+
+/* --- Coffee section --- */
+.coffee-section {
+    background: #c0ffee;
+    padding: 60px 10%;
+    border-radius: 30px 30px 0 0;
+}
+
+.coffee-box {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.coffee-box img {
+    width: 40%;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    animation: fadeUp 1s ease;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .img-card,
+    .tms-section .img-card {
+        width: 100%;
+    }
+
+    .coffee-box img {
+        width: 100%;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <a href="index.html">← 戻る</a>
+</header>
+
+<!-- 研究概要 -->
+<section>
+    <h2>研究</h2>
+
+    <p>
+        「初めての運動でも速く上手くなるヒトとそうでないヒトは何が違うのか」という疑問が研究との出会い。
+        「運動神経が良い」というよく使われる言葉に対して、具体的に何が良いのかを明らかにするべく、
+        身体を制御している脳や神経について研究を行っている。
+    </p>
+
+    <p>
+        現在は皮質脊髄路の興奮性を評価することができる経頭蓋磁気刺激（TMS）を使って、
+        皮質内の抑制や興奮性の程度が運動スキルの獲得にどう関連するのかをリサーチクエッションにし、
+        研究と論文の執筆を行っている。
+    </p>
+
+    <div class="img-card">
+        <img src="img/happyou.jpg" alt="学会発表の写真">
+    </div>
+
+</section>
+
+<div class="wave wave-top"></div>
+
+<!-- 実験装置（TMS） -->
+<section class="tms-section">
+
+    <h2>実験装置の紹介</h2>
+
+    <p>
+        経頭蓋磁気刺激（Transcranial Magnetic Stimulation：TMS）は、八の字型コイルに一瞬電流を流すことで、
+        右ネジの法則で知られるようにコイル周りに磁界を発生させる。この磁界は電気を通しにくい頭蓋骨の下にも生じ、
+        コイルに流した電流とは逆向きの電流を誘導する。その電流で脳の神経細胞をピンポイントで刺激することができる装置。めっちゃ難しい。
+    </p>
+
+    <div class="img-card">
+        <img src="img/tms.jpg" alt="TMS装置の写真">
+    </div>
+
+</section>
+
+<div class="wave wave-bottom"></div>
+
+<!-- Coffee セクション -->
+<section class="coffee-section">
+
+    <h2>研究とコーヒー</h2>
+
+    <p>
+        研究にはコーヒーは欠かせない。最近はコーヒーではなく、
+        エスプレッソが抽出できるマシンが導入されたことにより、
+        ラテやモカなどが飲めるように。ラテアートを練習中。
+    </p>
+
+    <div class="coffee-box">
+        <img src="img/coffee1.jpg" alt="コーヒーマシン">
+        <img src="img/coffee2.jpg" alt="ラテアート">
+    </div>
+
+</section>
+
+<footer style="text-align:center; padding:20px; color:#555;">
+    © 2025 まつけんの脳内
+</footer>
+
+</body>
+</html>

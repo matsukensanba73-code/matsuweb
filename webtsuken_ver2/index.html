@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>まつけんの脳内</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', sans-serif;
+            color: #fff;
+            background-color: #000;
+        }
+
+        /* --- HERO --- */
+        #hero {
+            height: 100vh;
+            background: url('img/uchu.jpg') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            #hero { background-attachment: fixed; }
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.4rem, 6vw, 4rem);
+            letter-spacing: 0.1em;
+            margin: 0 0 10px;
+            text-shadow: 0 0 18px rgba(150,150,255,0.9);
+        }
+        .hero-text p {
+            font-size: clamp(1rem, 3.5vw, 1.3rem);
+            opacity: 0.9;
+        }
+
+        /* --- NAV --- */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(0,0,0,0.7);
+            padding: 10px 0;
+            backdrop-filter: blur(5px);
+            z-index: 10;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            nav ul { gap: 20px; }
+            nav a { font-size: 0.9rem; }
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+        nav a:hover { color: #7ab6ff; }
+
+        /* --- SECTIONS --- */
+        section {
+            padding: 100px 8%;
+            min-height: 60vh;
+            background: #000;
+        }
+        @media (max-width: 600px) {
+            section { padding: 70px 6%; }
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            border-left: 6px solid #6a9eff;
+            padding-left: 12px;
+            margin-bottom: 20px;
+        }
+
+        .fadein-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 1s ease-out;
+        }
+        .fadein-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .section-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .section-text { flex: 1; }
+        .section-visual { flex: 1; text-align: right; }
+        .section-visual img {
+            max-width: 400px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(255,255,255,0.15);
+        }
+
+        .section-btn {
+            font-size: 1.2rem;
+            margin-left: 10px;
+            color: #6a9eff;
+            text-decoration: none;
+        }
+        .section-btn:hover { color: #a5c8ff; }
+
+        /* --- SITE CONCEPT AREA --- */
+        #concept-section {
+            padding: 80px 10%;
+            background: #050505;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+
+        .concept-box {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 35px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 12px;
+            backdrop-filter: blur(6px);
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 1.2s ease-out;
+        }
+        .concept-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .concept-box h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #9ec4ff;
+        }
+        .concept-box p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #ddd;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #111;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* --- STAR PARTICLES --- */
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<canvas id="starCanvas"></canvas>
+
+<header id="hero">
+    <div class="hero-text">
+        <h1>まつけんの脳内</h1>
+        <p>自分が好きなもの</p>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#music">Music</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#hobby">Hobby</a></li>
+        <li><a href="#teacher">Teacher</a></li>
+    </ul>
+</nav>
+
+<!-- MUSIC -->
+<section id="music" class="fadein-section">
+    <div class="section-content">
+        <div class="section-text">
+            <h2>Music <a class="section-btn" href="music.html">▶</a></h2>
+            <p>好きな音楽、紹介したいアーティストについてまとめています。</p>
+        </div>
+        <div class="section-visual">
+            <a href="music.html"><img src="img/music.jpg"></a>
+        </div>
+    </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research" class="fadein-section">
+    <div class="section-content">
+        <div class="section-text">
+            <h2>Research <a class="section-btn" href="research.html">▶</a></h2>
+            <p>脳・神経の研究内容や実験について紹介しています。</p>
+        </div>
+        <div class="section-visual">
+            <a href="research.html"><img src="img/research.jpg"></a>
+        </div>
+    </div>
+</section>
+
+<!-- HOBBY -->
+<section id="hobby" class="fadein-section">
+    <div class="section-content">
+        <div class="section-text">
+            <h2>Hobby <a class="section-btn" href="hobby.html">▶</a></h2>
+            <p>自分の趣味についての記録をまとめています。</p>
+        </div>
+        <div class="section-visual">
+            <a href="hobby.html"><img src="img/hobby.jpg"></a>
+        </div>
+    </div>
+</section>
+
+<!-- TEACHER -->
+<section id="teacher" class="fadein-section">
+    <div class="section-content">
+        <div class="section-text">
+            <h2>Teacher <a class="section-btn" href="teacher.html">▶</a></h2>
+            <p>教師についてまとめています。まだ、途中です。</p>
+        </div>
+        <div class="section-visual">
+            <a href="teacher.html"><img src="img/teacher.jpg"></a>
+        </div>
+    </div>
+</section>
+
+<!-- CONCEPT TEXT AT BOTTOM -->
+<section id="concept-section">
+    <div class="concept-box" id="concept">
+        <h3>このサイトについて</h3>
+        <p>
+            このサイトの名前には「まつけんの脳内」とありますが、デザインはどこか宇宙のような雰囲気になっています。<br>
+            それは、<strong>脳の神経細胞のネットワーク</strong>と、<strong>宇宙の銀河の構造</strong>が驚くほど似ていると言われているからです。<br>
+            どちらも広大で、複雑で、完全には解明されないブラックボックス。その神秘性が自分の“好き”と重なりました。<br>
+            宇宙も脳も、その全容はつかめないけれど、<br>
+            自分がどんな要素で形づくられているのか——それならはっきりと分かる。音楽、研究、趣味、教師としての日々。<br>
+            <br>
+            ここを訪れた人が、まつけんの脳内をふらっと散歩するような感覚で、<br>
+            少しでも自分のことを知ってくれたら嬉しいです。<br>
+            推しているアーティストなんかもね。<br>
+        </p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 まつけんの脳内</p>
+</footer>
+
+<script>
+/* Fade-in for sections */
+const sections = document.querySelectorAll('.fadein-section');
+const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+}, { threshold: 0.2 });
+sections.forEach(sec => sectionObserver.observe(sec));
+
+/* Concept fade-in */
+const concept = document.getElementById("concept");
+const conceptObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) concept.classList.add("visible");
+    });
+}, { threshold: 0.2 });
+conceptObserver.observe(concept);
+
+/* Star particles */
+const canvas = document.getElementById("starCanvas");
+const ctx = canvas.getContext("2d");
+let stars = [];
+
+function resize() {
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+}
+resize();
+addEventListener('resize', resize);
+
+function createStars() {
+    stars = [];
+    for (let i = 0; i < 90; i++) {
+        stars.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 2 + 1,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: (Math.random() - 0.5) * 0.3,
+            alpha: Math.random() * 0.6 + 0.2
+        });
+    }
+}
+createStars();
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    stars.forEach(s => {
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(170,190,255,${s.alpha})`;
+        ctx.fill();
+
+        s.x += s.vx;
+        s.y += s.vy;
+
+        if (s.x < 0 || s.x > canvas.width) s.vx *= -1;
+        if (s.y < 0 || s.y > canvas.height) s.vy *= -1;
+    });
+
+    requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>

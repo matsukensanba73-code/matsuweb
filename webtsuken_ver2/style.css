@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  font-family: "Hiragino Sans", sans-serif;
+  color: #333;
+}
+
+img/
+ ├── music.jpg 
+ ├── research.jpg 
+ ├── hobby.jpg 
+ └── teacher.jpg
+
+
+/* ---------- ヒーロー画像 ---------- */
+#hero {
+  height: 100vh; /* フル画面 */
+  background: url("https://images.unsplash.com/photo-1503264116251-35a269479413") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.hero-text h1 {
+  font-size: 4rem;
+  margin: 0;
+}
+
+.hero-text p {
+  font-size: 1.4rem;
+  opacity: 0.9;
+}
+
+/* ---------- ナビゲーション ---------- */
+nav {
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #eee;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin: 0;
+  padding: 15px 0;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ---------- セクション ---------- */
+section {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  font-size: 2.4rem;
+  margin-bottom: 15px;
+}
+
+/* ---------- フェードインアニメーション ---------- */
+.fadein-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.7s ease-out;
+}
+
+.fadein-section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- footer ---------- */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #f8f8f8;
+}
+
+/* ---------- スマホ対応 ---------- */
+@media (max-width: 600px) {
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

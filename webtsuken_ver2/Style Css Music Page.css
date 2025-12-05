@@ -1,0 +1,186 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica", "Arial", sans-serif;
+  line-height: 1.7;
+  color: #333;
+  background: #fafafa;
+  padding-bottom: 40px;
+}
+
+/* Header */
+.sub-header {
+  background: #111;
+  padding: 20px 0;
+  text-align: center;
+  color: #fff;
+}
+
+.sub-header h1 {
+  font-size: 32px;
+  letter-spacing: 3px;
+}
+
+/* Hero Image */
+.hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Content */
+.content {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.content h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.content p {
+  margin-bottom: 18px;
+  font-size: 16px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 40px 0;
+}
+
+/* Ranking Box */
+.ranking-box {
+  background: #fff;
+  border-radius: 14px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin-bottom: 50px;
+}
+
+.ranking-box h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.artist-img {
+  width: 100%;
+  border-radius: 14px;
+  margin: 18px 0;
+}
+
+.ranking-box a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.ranking-box a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 60px;
+  color: #777;
+}
+
+/* ------------------------------------------ */
+/* Smartphone Optimization (Responsive Design) */
+/* ------------------------------------------ */
+
+@media (max-width: 768px) {
+  .sub-header h1 {
+    font-size: 26px;
+  }
+
+  .content h2 {
+    font-size: 24px;
+  }
+
+  .ranking-box {
+    padding: 20px;
+  }
+
+  .ranking-box h2 {
+    font-size: 22px;
+  }
+
+  .content p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sub-header h1 {
+    font-size: 22px;
+    letter-spacing: 2px;
+  }
+
+  .content {
+    margin: 25px auto;
+  }
+
+  .ranking-box h2 {
+    font-size: 20px;
+  }
+
+  .content p {
+    font-size: 14px;
+  }
+
+  footer {
+    font-size: 14px;
+  }
+}
+/* Responsive smartphone optimized CSS */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  line-height: 1.6;
+}
+header img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 16px;
+}
+.section {
+  margin-bottom: 24px;
+}
+.section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+.section p {
+  font-size: 1rem;
+}
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+@media (max-width: 600px) {
+  .section h2 {
+    font-size: 1.25rem;
+  }
+  .section p {
+    font-size: 0.95rem;
+  }
+  .card {
+    padding: 12px;
+  }
+}

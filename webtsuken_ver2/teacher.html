@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teacher</title>
+<style>
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    background: #ffffff;
+    color: #333;
+    line-height: 1.9;
+}
+
+/* ヘッダー */
+header {
+    padding: 20px;
+    background: #f5f5f5;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: center;
+    z-index: 10;
+}
+header a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* 全体幅 */
+.container {
+    width: min(800px, 90%);
+    margin: 60px auto;
+}
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+}
+h2 {
+    font-size: 1.5rem;
+    color: #444;
+    margin-top: 40px;
+    border-left: 6px solid #8ac0ff;
+    padding-left: 10px;
+}
+p {
+    color: #444;
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+}
+
+/* いいねボタン */
+.like-section {
+    text-align: center;
+    margin: 60px 0;
+}
+.like-btn {
+    font-size: 2.2rem;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+    color: #bbb;
+}
+.like-btn.liked {
+    color: #ff5b5b;
+    transform: scale(1.2);
+}
+.like-count {
+    font-size: 1.2rem;
+    margin-top: 8px;
+    color: #555;
+}
+</style>
+</head>
+
+<body>
+<header>
+    <a href="index.html">← HOMEに戻る</a>
+</header>
+
+<div class="container">
+    <h1>Teacher</h1>
+    <p>
+        本職は<strong>体育科教員</strong>。<br>
+        今は情報科の授業を担当している。忙しくも充実した毎日を過ごしている。<br>
+        難しいけど、頑張ろう！
+    </p>
+
+    <!-- いいね -->
+    <div class="like-section">
+        <div id="likeBtn" class="like-btn">❤️</div>
+        <div id="likeCount" class="like-count">0 Likes</div>
+    </div>
+</div>
+
+<script>
+const likeBtn = document.getElementById("likeBtn");
+const likeCount = document.getElementById("likeCount");
+
+const API_URL = "https://script.google.com/macros/s/AKfycbzw4ajdFF1oBbHOKqwXgLOWRyqWsvwWDie9b1MRSpQ-6-idnDydBDTr_xSRl2WFtbui/exec";
+
+// 初期値を取得
+fetch(API_URL)
+  .then(res => res.json())
+  .then(data => {
+    likeCount.textContent = `${data.count} Likes`;
+  });
+
+// ❤️ クリック時：常に +1 する
+likeBtn.addEventListener("click", () => {
+  fetch(API_URL, { method: "POST" })
+    .then(res => res.json())
+    .then(data => {
+      likeCount.textContent = `${data.count} Likes`;
+      likeBtn.classList.add("liked");
+    });
+});
+</script>
+
+
+
+</body>
+</html>
